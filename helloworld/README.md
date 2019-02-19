@@ -2,6 +2,7 @@
 ```
 gcc -c $(MYLIBDIR)/add.c -o $(MYLIBDIR)/add.o
 ar rcs -o $(MYLIBDIR)/libadd.a $(MYLIBDIR)/add.o
+gcc -o test main.c -I $(MYINCLUDEDIR) -L $(MYLIBDIR) -ladd
 ```
 
 # gcc编译动态库
@@ -13,7 +14,7 @@ gcc -o test main.c -I $(MYINCLUDEDIR) -rdynamic ./libadd.so -Wl,-rpath,./
 
 -I  指定头文件目录，优先搜索的目录。
 -L  指定库文件目录
--ladd  表名链接的库是libadd.a
+-ladd  表示链接的库是libadd.a 或 libadd.so
 -fpic或-fPIC，不生成用于定位的PLT部分代码。默认参数是-mgotplt。
 -Wl    将后面的参数传给链接器
 -rpath 设置动态库搜索路径
