@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+*.exe
+*.pdf
+helloworld/report_hello/echarts_phantomjs_pdf/output
+
